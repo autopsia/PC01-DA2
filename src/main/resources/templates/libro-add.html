@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" >
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Listado de Alumnos</title>
+</head>
+<body>
+
+
+<div class="container">
+    <h3>Agregar Alumnos</h3>
+
+    <div>
+        <form action="#" th:action="@{/autors/save}" th:object="${autor}" method="post">
+
+            <div class="form-group">
+                <label for="documentNumber">id</label>
+                <input type="text" class="class-controller"
+                       id="documentNumber" placeholder="Ingrese id"
+                       th:field="*{id}">
+            </div>
+            <div class="form-group">
+                <label for="name">nombre</label>
+                <input type="text" class="class-controller"
+                       id="name" placeholder="Ingrese nombre"
+                       th:field="*{nombre}">
+            </div>
+            <div class="form-group">
+                <label for="lastNameFather">codigo</label>
+                <input type="text" class="class-controller"
+                       id="lastNameFather" placeholder="Ingrese codigo"
+                       th:field="*{codigo}">
+            </div>
+            <div class="form-group">
+                <label for="lastNameMother">estado</label>
+                <input type="text" class="class-controller"
+                       id="lastNameMother" placeholder="Ingrese estado"
+                       th:field="*{estado}">
+            </div>
+            <div class="form-group">
+                <label for="birthDate">precio</label>
+                <input type="text" class="class-controller"
+                       id="birthDate" placeholder="Ingrese precio"
+                       th:field="*{precio}">
+            </div>
+
+            <button>Guardar</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
