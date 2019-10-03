@@ -1,6 +1,7 @@
 package com.example.pc02.service;
 
 import com.example.pc02.model.Author;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,14 +12,8 @@ import java.util.List;
 public class AutorServices implements GenericService<Author, String> {
     List<Author> autors = new ArrayList<>(
             Arrays.asList(
-                    new Author("","","","",12, ""),
-                    new Author("","","","",12, ""),
-                    new Author("","","","",12, ""),
-                    new Author("","","","",12, ""),
-                    new Author("","","","",12, ""),
-                    new Author("","","","",12, ""),
-                    new Author("","","","",12, ""),
-                    new Author("","","","",12, "")
+                    new Author("0000001","Ciro","Alegría","Bazán",57, "Es uno de los máximos representantes de la narrativa indigenista, marcada por la creciente conciencia sobre el problema de la opresión indígena y por el afán de dar a conocer esta situación, cuyas obras representativas son las llamadas “novelas de la tierra”."),
+                    new Author("0000002","Alfredo","Bryce ","Echenique ",80 , "Es un escritor peruano, célebre por novelas como Un mundo para Julius, La vida exagerada de Martín Romaña o No me esperen en abril.")
 
             )
     );

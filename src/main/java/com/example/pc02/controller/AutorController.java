@@ -32,14 +32,22 @@ public class AutorController implements GenericController<Author, String> {
     }
 
 
-    @Override
-    public String getForUpdate(String s, Model model) {
-        return null;
+    @GetMapping("/autors/edit/{dni}")
+    public String getForUpdate(@PathVariable String dni, Model model) {
+        Author currentAuthor = autorServices.findById(dni);
+        model.addAttribute("autor", currentAuthor);
+        return "autor-edit";
     }
 
-    @Override
-    public String update(String s, Author author, Model model) {
-        return null;
+    @PostMapping("/autors/update/{dni}")
+    public String update(@PathVariable String dni, Author author, Model model) {
+        //Update
+        autorServices.update(author);
+
+        //list
+        List<Author> autores = autorServices.findAll();
+        model.addAttribute("autors", autores);
+        return "autor";
     }
 
     @GetMapping("/autors/add")
@@ -48,9 +56,9 @@ public class AutorController implements GenericController<Author, String> {
         return "autor-add";
     }
 
-    @GetMapping("/productos/delete/{dni}")
-    public String delete(@PathVariable String autorid, Model model) {
-        Author aBorrar = autorServices.findById(autorid);
+    @GetMapping("/autors/delete/{dni}")
+    public String delete(@PathVariable String dni, Model model) {
+        Author aBorrar = autorServices.findById(dni);
         autorServices.delete(aBorrar);
         return getList(model);
     }

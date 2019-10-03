@@ -15,49 +15,51 @@
 
 
 <div class="container">
-    <h3>Agregar Autor</h3>
+    <h3>Editar Autor</h3>
 
     <div>
-        <form action="#" th:action="@{/autors/save}" th:object="${autor}" method="post">
+        <form action="#" method="post"
+              th:object="${autor}"
+              th:action="@{/autors/update/{dni} (dni=${autor.dni})}" >
 
             <div class="form-group">
                 <label for="dni">dni</label>
-                <input type="text" class="form-control"
+                <input type="text" class="class-controller form-control"
                        id="dni" placeholder="Ingrese dni"
-                       th:field="*{dni}">
+                       th:field="*{dni}" disabled>
             </div>
             <div class="form-group">
                 <label for="name">firstName</label>
-                <input type="text" class="form-control"
+                <input type="text" class="class-controller form-control"
                        id="name" placeholder="Ingrese firstName"
                        th:field="*{firstName}">
             </div>
             <div class="form-group">
                 <label for="lastNameFather">lastNameFather</label>
-                <input type="text" class="form-control"
+                <input type="text" class="class-controller form-control"
                        id="lastNameFather" placeholder="Ingrese lastNameFather"
                        th:field="*{lastNameFather}">
             </div>
             <div class="form-group">
                 <label for="lastNameMother">lastNameMother</label>
-                <input type="text" class="form-control"
+                <input type="text" class="class-controller form-control"
                        id="lastNameMother" placeholder="Ingrese lastNameMother"
                        th:field="*{lastNameMother}">
             </div>
             <div class="form-group">
                 <label for="birthDate">age</label>
-                <input type="number" class="form-control"
+                <input type="number" class="class-controller form-control"
                        id="birthDate" placeholder="Ingrese age"
                        th:field="*{age}">
             </div>
             <div class="form-group">
                 <label for="biography">biography</label>
-                <input type="text" class="form-control"
+                <input type="text" class="class-controller form-control"
                        id="biography" placeholder="Ingrese biography"
                        th:field="*{biography}">
             </div>
 
-            <button class="btn btn-primary btn-lg btn-block">Guardar</button>
+            <button class="btn btn-primary btn-lg btn-block">Editar</button>
         </form>
     </div>
 </div>

@@ -33,14 +33,23 @@ public class LibroController implements GenericController<Book, String> {
     }
 
 
-    @Override
-    public String getForUpdate(String s, Model model) {
-        return null;
+    @GetMapping("/libros/edit/{isbn}")
+    public String getForUpdate(@PathVariable String isbn, Model model) {
+            Book currentLibro = libroServices.findById(isbn);
+            model.addAttribute("libro", currentLibro);
+            return "libro-edit";
+
     }
 
-    @Override
-    public String update(String s, Book Book, Model model) {
-        return null;
+    @PostMapping("/autors/update/{isbn}")
+    public String update(@PathVariable String isbn, Book book, Model model) {
+        //Update
+        libroServices.update(book);
+
+        //list
+        List<Book> books = libroServices.findAll();
+        model.addAttribute("libros", books);
+        return "libro";
     }
 
     @GetMapping("/libros/add")
@@ -49,12 +58,10 @@ public class LibroController implements GenericController<Book, String> {
         return "libro-add";
     }
 
-    @GetMapping("/productos/delete/{id}")
-    public String delete(@PathVariable String libroid, Model model) {
-        Book aBorrar = libroServices.findById(libroid);
+    @GetMapping("/libros/delete/{isbn}")
+    public String delete(@PathVariable String isbn, Model model) {
+        Book aBorrar = libroServices.findById(isbn);
         libroServices.delete(aBorrar);
-        List<Book> libros = libroServices.findAll();
-        model.addAttribute("libros", libros);
-        return "libros";
+        return getList(model);
     }
 }
